@@ -1,0 +1,1 @@
+Oto przykładowy plik do nauki gita.
