@@ -1,0 +1,3 @@
+#Zabawa przez naukę, nauka przez zabawę...
+
+... czyli różne programy pisane z myślą rozwoju umiejętności, różny ich cel, przeznaczenie i stopień zaawansowania. Ten ostatni akurat planowo powinien rosnąć. Zobaczymy, jak wyjdzie.
