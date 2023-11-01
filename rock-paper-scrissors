@@ -1,0 +1,67 @@
+from random import choice
+
+class choices():
+    choices = {
+        "0": "papier",
+        "1": "kamień",
+        "2": "nożyce"
+    }
+
+
+def returner():
+    return choice(list(choices.choices.keys()))
+
+
+def choices_picker():
+    while True:
+        user_choice = input("Twój wybór to: ")
+        if not user_choice.isdigit():
+            print(f"Zamiast liczby wpisałeś: {type(user_choice).__name__}. Zacznijmy jeszcze raz")
+        elif int(user_choice) not in range(0,3):
+            print("Pamiętaj - 0 to papier, 1 to kamień, 2 to nożyce")
+        else:
+            return user_choice
+
+
+def win():
+    return print("wygrywasz!")
+
+
+def loose():
+    return print("Przegrywasz :(")
+
+
+def main():
+
+    while True:
+        print("Gramy w papier, kamień, nożyce. Zaczynaj!\nWpisz, co wybierasz. Papier, kamień czy nożyce?\nZamiast słów wpisz odpowiednio: 0, 1 lub 2.") 
+        print("\nZ gry możesz wyjść, wpisując: Koniec")
+        user_choice = choices_picker()
+        print(f"Wybrałeś: {choices.choices[user_choice]}")
+        if user_choice != 'Koniec'.lower():
+            computer_choice = returner()
+            print(f"Twój przeciwnik wybrał: {choices.choices[computer_choice]}. Co oznacza, że...\n\n")
+            if user_choice == computer_choice:
+                print("...mamy remis! Jeszcze raz.")
+            elif user_choice == "0":
+                if computer_choice == "1":
+                    return win()
+                elif computer_choice == "2":
+                    return loose()
+            elif user_choice == "1":
+                if computer_choice == "0":
+                    return loose()
+                elif computer_choice == "2":
+                    return win()
+            elif user_choice == "2":
+                if computer_choice == "0":
+                    return win()
+                elif computer_choice == "1":
+                    return loose()
+        else:
+            print("ok to nara")
+            break
+
+
+if __name__ == "__main__":
+    main()
