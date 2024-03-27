@@ -1,3 +1,6 @@
+import matplotlib.pyplot as plt
+
+
 def start_number() -> int:
     while True:
         number = input("Write a number from which we begin computing:\n")
@@ -33,7 +36,24 @@ def collatz_stats(numbers_list: list) -> None:
     """)
 
 
-if __name__ == "__main__":
+def collatz_visualization(numbers_list: list) -> None:
+    plt.style.use('seaborn-v0_8-notebook')
+    plt.plot(numbers_list, label='The sequential distribution of numbers of computed array', marker='.', linewidth=0.5)
+    plt.legend()
+    plt.title("Distribution of computed values")
+    plt.xlabel("Number of steps performed in given computation")
+    plt.ylabel("The value of the number")
+
+    plt.tight_layout()
+    plt.show()
+
+
+def main():
     user_number = start_number()
     operation_list = counting_collatz(user_number)
     collatz_stats(operation_list)
+    collatz_visualization(operation_list)
+
+
+if __name__ == "__main__":
+    main()
